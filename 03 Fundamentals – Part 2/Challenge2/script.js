@@ -16,9 +16,9 @@ So you can just call a function as array values (so don't store the tip values i
 GOOD LUCK 😀
 */
 
-const calcTip = (tip) => {
-  return tip * 1.15;
-};
+const calcTip = (bill) =>
+  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
 console.log(calcTip(100));
 
 const bills = [125, 555, 44];
