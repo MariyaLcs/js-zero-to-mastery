@@ -5,4 +5,4 @@
 ### 07
 
 - [Guess-My-Number](https://github.com/MariyaLcs/js-zero-to-mastery/tree/main/07%20DOM%20and%20Events%20Fundamentals/Guess-My-Number)
-- Modal Windows
+- [Modal Windows](https://github.com/MariyaLcs/js-zero-to-mastery/tree/main/07%20DOM%20and%20Events%20Fundamentals/Modal%20window)
