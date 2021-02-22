@@ -2,4 +2,7 @@
 
 ## Course Projects
 
-### 1 [Guess-My-Number]()
+### 07
+
+- [Guess-My-Number](https://github.com/MariyaLcs/js-zero-to-mastery/tree/main/07%20DOM%20and%20Events%20Fundamentals/Guess-My-Number)
+- Modal Windows
