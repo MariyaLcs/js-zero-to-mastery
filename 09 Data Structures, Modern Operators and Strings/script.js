@@ -29,10 +29,47 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered at ${time} to ${address}`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: "12.30",
+  address: "Norley Close",
+  mainIndex: 2,
+  starterIndex: 2,
+});
+//Destucturing Arrays
 
 let [first, second] = restaurant.categories;
 //Switching variables
 [first, second] = [second, first];
 
-const [starte, main] = restaurant.order(2, 0);
+const [starter, main] = restaurant.order(2, 0);
+
+// Destucturing Objects
+
+const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// Setting default values
+
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Nested objects
+
+const {
+  sat: { open: openTime, close },
+} = openingHours;
+console.log(openTime);
