@@ -108,5 +108,12 @@ const newRestaurant = { foundedIn: 1998, ...restaurant, founder: "Guiseppe" };
 const restaurantCopy = { ...restaurant };
 restaurantCopy.name = "Roma";
 
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
+
+// Rest
+const [pizza, , risotto, ...other] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, other);
