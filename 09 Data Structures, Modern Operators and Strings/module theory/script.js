@@ -39,6 +39,9 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+  orderPizza: function (mainIgredient, ...otherIngredients) {
+    console.log(`Nice ${mainIgredient} pizza with ${otherIngredients} topping`);
+  },
 };
 
 const ingredients = [
@@ -111,9 +114,33 @@ restaurantCopy.name = "Roma";
 // console.log(restaurant.name);
 // console.log(restaurantCopy.name);
 
-// Rest
+// 1. Destructuring
+// Rest Array
 const [pizza, , risotto, ...other] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ];
-console.log(pizza, risotto, other);
+// console.log(pizza, risotto, other);
+
+//Rest Object
+const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+//2. Functions
+
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+
+// Short Circuiting OR
+restaurant.numGuests = 0;
+
+const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// Short Circuiting AND
+restaurant.orderPizza && restaurant.orderPizza("cheese");
+
+// Nulish Coalescing Operator ??
+//Null and underfind (NOT 0 or "")
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
