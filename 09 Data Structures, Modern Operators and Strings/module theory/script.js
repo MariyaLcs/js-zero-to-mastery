@@ -160,24 +160,46 @@ const guestCorrect = restaurant.numGuests ?? 10;
 // console.log(restaurant.openingHours.mon?.open);
 // console.log(restaurant.openingHours.mon.open);
 
-console.log("-------------Looping Objects---------");
+// console.log("-------------Looping Objects---------");
 
 //Property NAMES
 
-const properties = Object.keys(openingHours);
-let openStr = `We are open on ${properties.length} days: `;
-for (const day of Object.keys(openingHours)) {
-  openStr += `${day}, `;
-}
-console.log(openStr);
+// const properties = Object.keys(openingHours);
+// let openStr = `We are open on ${properties.length} days: `;
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
 
 //Property VALUES
 
-const values = Object.values(openingHours);
+//const values = Object.values(openingHours);
 
 //Entire object
-const entries = Object.entries(openingHours);
+//const entries = Object.entries(openingHours);
 
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+// console.log("-------------Looping Set---------");
+// const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef"];
+// const staffUnique = new Set(staff);
+// console.log(staffUnique);
+
+console.log("-------------MAP---------");
+const rest = new Map();
+rest
+  .set("name", "ROMA")
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are open")
+  .set(false, "We are closed");
+
+console.log(rest.get("name"));
+const time = 21;
+
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+console.log(rest.has("open"));
+// rest.delete(name);
+console.log(rest.size);
