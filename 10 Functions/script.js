@@ -1,44 +1,63 @@
 "use strict";
-//Default Parameters
-const bookings = [];
-const createBooking = function (
-  flightNum,
-  numPassengers = 1,
-  price = 199 * numPassengers
-) {
-  // ES5
-  // numPassengers = numPassengers || 1;
-  // price = price || 199;
-  const booking = { flightNum, numPassengers, price };
-  console.log(booking);
-  bookings.push(booking);
-};
+//******Default Parameters
+// const bookings = [];
+// const createBooking = function (
+//   flightNum,
+//   numPassengers = 1,
+//   price = 199 * numPassengers
+// ) {
+// ES5
+// numPassengers = numPassengers || 1;
+// price = price || 199;
+// const booking = { flightNum, numPassengers, price };
+// console.log(booking);
+// bookings.push(booking);
+// };
 
 //createBooking("LH124", undefined, 50);
 
-//Values vs. References
-const flight = "LH123";
-const jonas = {
-  name: "jonas",
-  passport: 202020,
-};
-const checkIn = function (flightNum, passenger) {
-  flightNum = "LH999";
-  passenger.name = "Mr. " + passenger.name;
+//******Values vs. References
+// const flight = "LH123";
+// const jonas = {
+//   name: "jonas",
+//   passport: 202020,
+// };
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = "LH999";
+//   passenger.name = "Mr. " + passenger.name;
 
-  if (passenger.passport === 202020) {
-    alert("Checked in ");
-  } else {
-    alert("Wrong passport!");
-  }
-};
-checkIn(flight, jonas);
-console.log(flight);
-console.log(jonas);
+//   if (passenger.passport === 202020) {
+//     alert("Checked in ");
+//   } else {
+//     alert("Wrong passport!");
+//   }
+// };
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
 
-const newPassport = function (person) {
-  person.passport = Math.trunc(Math.random() * 10000000);
+// const newPassport = function (person) {
+//   person.passport = Math.trunc(Math.random() * 10000000);
+// };
+
+// newPassport(jonas);
+// checkIn(flight, jonas);
+
+//******Functions Accepting Callback Functions
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
 };
 
-newPassport(jonas);
-checkIn(flight, jonas);
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
+};
+
+//create a high-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+transformer("Javascript is the best!", upperFirstWord);
+transformer("Javascript is the best!", oneWord);
