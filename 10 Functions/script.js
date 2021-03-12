@@ -44,20 +44,35 @@
 // checkIn(flight, jonas);
 
 //******Functions Accepting Callback Functions
-const oneWord = function (str) {
-  return str.replace(/ /g, "").toLowerCase();
-};
+// const oneWord = function (str) {
+//   return str.replace(/ /g, "").toLowerCase();
+// };
 
-const upperFirstWord = function (str) {
-  const [first, ...others] = str.split(" ");
-  return [first.toUpperCase(), ...others].join(" ");
-};
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(" ");
+//   return [first.toUpperCase(), ...others].join(" ");
+// };
 
 //create a high-order function
-const transformer = function (str, fn) {
-  console.log(`Original string: ${str}`);
-  console.log(`Transformed string: ${fn(str)}`);
-  console.log(`Transformed by: ${fn.name}`);
+// const transformer = function (str, fn) {
+//   console.log(`Original string: ${str}`);
+//   console.log(`Transformed string: ${fn(str)}`);
+//   console.log(`Transformed by: ${fn.name}`);
+// };
+// transformer("Javascript is the best!", upperFirstWord);
+// transformer("Javascript is the best!", oneWord);
+
+//******Functions Returning Functions
+
+const greet = (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
 };
-transformer("Javascript is the best!", upperFirstWord);
-transformer("Javascript is the best!", oneWord);
+//same code
+//const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+const greeterHey = greet("HOHOHO ");
+
+greeterHey("Jonas");
+greet("hi ")("Martha");
