@@ -6,7 +6,7 @@
 //   numPassengers = 1,
 //   price = 199 * numPassengers
 // ) {
-// ES5
+// ******ES5
 // numPassengers = numPassengers || 1;
 // price = price || 199;
 // const booking = { flightNum, numPassengers, price };
@@ -53,7 +53,7 @@
 //   return [first.toUpperCase(), ...others].join(" ");
 // };
 
-//create a high-order function
+//******create a high-order function
 // const transformer = function (str, fn) {
 //   console.log(`Original string: ${str}`);
 //   console.log(`Transformed string: ${fn(str)}`);
@@ -69,7 +69,7 @@
 //     console.log(`${greeting} ${name}`);
 //   };
 // };
-//same code
+//******same code
 //const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 // const greeterHey = greet("HOHOHO ");
@@ -78,41 +78,76 @@
 // greet("hi ")("Martha");
 
 //******The Call and Apply Methods
-const lufthansa = {
-  airline: "Lufthansa",
-  iataCode: "LH",
-  booking: [],
-  //same book: function(){}
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-    );
-    this.booking.push({ flight: `${this.iataCode}${flightNum}`, name });
-  },
-};
-lufthansa.book(239, "Santa");
-lufthansa.book(635, "Rico1");
+// const lufthansa = {
+//   airline: "Lufthansa",
+//   iataCode: "LH",
+//   booking: [],
+//   //******same book: function(){}
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.booking.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   },
+// };
+// lufthansa.book(239, "Santa");
+// lufthansa.book(635, "Rico1");
 
-const eurowings = {
-  airline: "Eurowings",
-  iataCode: "EW",
-  booking: [],
-};
+// const eurowings = {
+//   airline: "Eurowings",
+//   iataCode: "EW",
+//   booking: [],
+// };
 
-const book = lufthansa.book;
+//const book = lufthansa.book;
 
-//Call Method
-book.call(eurowings, 23, "Rico2");
+//******Call Method
+//book.call(eurowings, 23, "Rico2");
 // console.log(eurowings);
 
-book.call(lufthansa, 239, "Rico3");
-console.log(lufthansa);
+//book.call(lufthansa, 239, "Rico3");
+//console.log(lufthansa);
 
-//Apply Method
-const flightData = [583, "Rico3"];
-book.apply(eurowings, flightData);
+//******Apply Method
+//const flightData = [583, "Rico3"];
+//book.apply(eurowings, flightData);
 // console.log(eurowings);
 
-//same with call -> prefer this way
-book.call(eurowings, ...flightData);
-console.log(eurowings);
+//******same with call -> prefer this way
+//book.call(eurowings, ...flightData);
+//console.log(eurowings);
+
+//******Bind Method
+
+// const bookEW = book.bind(eurowings);
+// bookEW(23, "Rico4");
+// const bookEW23 = book.bind(eurowings, 23);
+// bookEW23("Rico5");
+
+//******With Event Listeners
+// lufthansa.planes = 300;
+// lufthansa.buyPlane = function () {
+//   console.log(this);
+//   this.planes++;
+//   console.log(this.planes);
+// };
+// document
+//   .querySelector(".buy")
+//   .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+
+//******Partial Application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+
+console.log(addVAT2(100));
