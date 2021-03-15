@@ -136,18 +136,30 @@
 //   .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
 
 //******Partial Application
-const addTax = (rate, value) => value + value * rate;
-console.log(addTax(0.1, 200));
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
 
-const addVAT = addTax.bind(null, 0.23);
-console.log(addVAT(100));
+// const addVAT = addTax.bind(null, 0.23);
+// console.log(addVAT(100));
 
-const addTaxRate = function (rate) {
-  return function (value) {
-    return value + value * rate;
-  };
+// const addTaxRate = function (rate) {
+//   return function (value) {
+//     return value + value * rate;
+//   };
+// };
+
+// const addVAT2 = addTaxRate(0.23);
+
+// console.log(addVAT2(100));
+
+//******IIFE
+const runOnce = function () {
+  console.log("This will never run again!");
 };
+runOnce();
 
-const addVAT2 = addTaxRate(0.23);
+(function () {
+  console.log("This will never run again!");
+})();
 
-console.log(addVAT2(100));
+(() => console.log("This will ALSO never run again"))();
