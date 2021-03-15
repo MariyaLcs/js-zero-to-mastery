@@ -64,15 +64,55 @@
 
 //******Functions Returning Functions
 
-const greet = (greeting) {
-  return function (name) {
-    console.log(`${greeting} ${name}`);
-  };
-};
+// const greet = (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
 //same code
 //const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
-const greeterHey = greet("HOHOHO ");
+// const greeterHey = greet("HOHOHO ");
 
-greeterHey("Jonas");
-greet("hi ")("Martha");
+// greeterHey("Jonas");
+// greet("hi ")("Martha");
+
+//******The Call and Apply Methods
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  booking: [],
+  //same book: function(){}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.booking.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+lufthansa.book(239, "Santa");
+lufthansa.book(635, "Rico1");
+
+const eurowings = {
+  airline: "Eurowings",
+  iataCode: "EW",
+  booking: [],
+};
+
+const book = lufthansa.book;
+
+//Call Method
+book.call(eurowings, 23, "Rico2");
+// console.log(eurowings);
+
+book.call(lufthansa, 239, "Rico3");
+console.log(lufthansa);
+
+//Apply Method
+const flightData = [583, "Rico3"];
+book.apply(eurowings, flightData);
+// console.log(eurowings);
+
+//same with call -> prefer this way
+book.call(eurowings, ...flightData);
+console.log(eurowings);
