@@ -153,13 +153,28 @@
 // console.log(addVAT2(100));
 
 //******IIFE
-const runOnce = function () {
-  console.log("This will never run again!");
+// const runOnce = function () {
+//   console.log("This will never run again!");
+// };
+// runOnce();
+
+// (function () {
+//   console.log("This will never run again!");
+// })();
+
+// (() => console.log("This will ALSO never run again"))();
+
+//******Closures
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
 };
-runOnce();
 
-(function () {
-  console.log("This will never run again!");
-})();
+const booker = secureBooking();
+booker();
+booker();
 
-(() => console.log("This will ALSO never run again"))();
+console.dir(booker);
