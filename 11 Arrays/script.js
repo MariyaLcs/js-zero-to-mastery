@@ -82,10 +82,10 @@ for (const movement of movements) {
   }
 }
 // **********forEach method
-movements.forEach(function (movement) {
+movements.forEach(function (movement, index, array) {
   if (movement > 0) {
-    console.log(`You deposited ${movement}`);
+    console.log(`Movement ${index + 1}: You deposited ${movement}`);
   } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
+    console.log(`Movement ${index + 1}: You withdrew ${Math.abs(movement)}`);
   }
 });
