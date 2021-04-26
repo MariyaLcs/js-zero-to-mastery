@@ -9,3 +9,11 @@
 - [Pig Game](https://github.com/MariyaLcs/js-zero-to-mastery/tree/main/07%20DOM%20and%20Events%20Fundamentals/Pig-Game)
 
 ### Section 8: How JavaScript Works Behind the Scenes
+
+### Section 9: Data Structures, Modern Operators and Strings
+
+### Section 10: A Closer Look at Functions
+
+- [bankist, Project #1](https://github.com/MariyaLcs/bankist)
+
+### Section 11: Working with Arrays
