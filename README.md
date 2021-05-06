@@ -17,3 +17,9 @@
 - [bankist, Project #1](https://github.com/MariyaLcs/bankist)
 
 ### Section 11: Working with Arrays
+
+### Section 12: Numbers, Dates, Intl and Timers
+
+### Section 13: Advanced DOM Events
+
+- [BankistFront, Project #2](https://github.com/MariyaLcs/BankistFront)
